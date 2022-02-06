@@ -101,7 +101,7 @@ def print_stats(pool_id, bribed):
   blocks_for_two_weeks = blocks_per_second * 60 * 60 * 24 * 14
   beets_per_block = 4.5
   beets_up_for_grabs = beets_per_block * blocks_for_two_weeks * 0.3
-  cost_per_vote = beets_up_for_grabs * price / total_votes
+  vote_worth = beets_up_for_grabs * price / total_votes
   our_beets = beets_up_for_grabs * (votes_to_us / total_votes)
   our_gains = our_beets * price
   cost_per_vote = bribed / votes_to_us
@@ -111,7 +111,7 @@ def print_stats(pool_id, bribed):
   print("")
   print("Total Beets Voted: %s" % '{:,}'.format(int(total_votes)))
   print("Beets up for grabs: %s" % '{:,}'.format(int(beets_up_for_grabs)))
-  print("Vote worth: $%s" % '{:,}'.format(round(cost_per_vote, 2)))
+  print("Vote worth: $%s" % '{:,}'.format(round(vote_worth, 4)))
   print("")
   print("Total Votes to us: %s" % '{:,}'.format(int(votes_to_us)))
   print("Percent to us: %s" % str(round(votes_to_us / total_votes * 100, 2)))
